@@ -35,10 +35,27 @@ public class Rover {
 
     public void moveForward() {
         //TODO: implement this method
+        if (this.direction == Direction.N) {
+            this.positionY += 1;
+        } else if (this.direction == Direction.E){
+            this.positionX += 1;
+        } else if (this.direction == Direction.S) {
+            this.positionY -= 1;
+        } else if(this.direction == Direction.W ) {
+            this.positionX -= 1;
+        }
     }
 
     public void moveBackward() {
-        //TODO: implement this method
+        if (this.direction == Direction.N) {
+            this.positionY -= 1;
+        } else if (this.direction == Direction.E){
+            this.positionX -= 1;
+        } else if (this.direction == Direction.S) {
+            this.positionY += 1;
+        } else if(this.direction == Direction.W ) {
+            this.positionX += 1;
+        }
     }
 
     public void turnLeft() {
