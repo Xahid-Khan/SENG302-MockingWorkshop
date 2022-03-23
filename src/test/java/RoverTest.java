@@ -22,12 +22,21 @@ public class RoverTest {
         assertThrows(IllegalArgumentException.class, () -> {
             rover.land(planet, 6, 1, Rover.Direction.N);
         });
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            rover.land(planet, -1, 1, Rover.Direction.N);
+        });
+
     }
 
     @Test
     public void testLandWithYOutOfBoundsThrowsException() {
         assertThrows(IllegalArgumentException.class, () -> {
             rover.land(planet, 1, 9, Rover.Direction.N);
+        });
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            rover.land(planet, 1, -1, Rover.Direction.N);
         });
     }
 
@@ -45,6 +54,10 @@ public class RoverTest {
     public void testScanForRockFalse() throws IllegalArgumentException {
         planet.createRock(1, 2);
         rover.land(planet, 3, 4, Rover.Direction.N);
+
+        assertFalse(rover.scanForRock());
+
+        planet.createRock(3, 2);
 
         assertFalse(rover.scanForRock());
     }
@@ -131,50 +144,74 @@ public class RoverTest {
 
     @Test
     public void testTurnLeftFromNorth() throws IllegalArgumentException {
-        //TODO: implement this test
-        fail("Not yet implemented");
+        rover.land(planet, 3, 4, Rover.Direction.N);
+        rover.turnLeft();
+
+        assertEquals(2, rover.getPositionX());
+        assertEquals(4, rover.getPositionY());
     }
 
     @Test
     public void testTurnLeftFromSouth() throws IllegalArgumentException {
-        //TODO: implement this test
-        fail("Not yet implemented");
+        rover.land(planet, 3, 4, Rover.Direction.S);
+        rover.turnLeft();
+
+        assertEquals(4, rover.getPositionX());
+        assertEquals(4, rover.getPositionY());
     }
 
     @Test
     public void testTurnLeftFromEast() throws IllegalArgumentException {
-        //TODO: implement this test
-        fail("Not yet implemented");
+        rover.land(planet, 3, 4, Rover.Direction.E);
+        rover.turnLeft();
+
+        assertEquals(3, rover.getPositionX());
+        assertEquals(5, rover.getPositionY());
     }
 
     @Test
     public void testTurnLeftFromWest() throws IllegalArgumentException {
-        //TODO: implement this test
-        fail("Not yet implemented");
+        rover.land(planet, 3, 4, Rover.Direction.W);
+        rover.turnLeft();
+
+        assertEquals(3, rover.getPositionX());
+        assertEquals(3, rover.getPositionY());
     }
 
     @Test
     public void testTurnRightFromNorth() throws IllegalArgumentException {
-        //TODO: implement this test
-        fail("Not yet implemented");
+        rover.land(planet, 3, 4, Rover.Direction.N);
+        rover.turnRight();
+
+        assertEquals(4, rover.getPositionX());
+        assertEquals(4, rover.getPositionY());
     }
 
     @Test
     public void testTurnRightFromSouth() throws IllegalArgumentException {
-        //TODO: implement this test
-        fail("Not yet implemented");
+        rover.land(planet, 3, 4, Rover.Direction.S);
+        rover.turnRight();
+
+        assertEquals(2, rover.getPositionX());
+        assertEquals(4, rover.getPositionY());
     }
 
     @Test
     public void testTurnRightFromEast() throws IllegalArgumentException {
-        //TODO: implement this test
-        fail("Not yet implemented");
+        rover.land(planet, 3, 4, Rover.Direction.E);
+        rover.turnRight();
+
+        assertEquals(3, rover.getPositionX());
+        assertEquals(3, rover.getPositionY());
     }
 
     @Test
     public void testTurnRightFromWest() throws IllegalArgumentException {
-        //TODO: implement this test
-        fail("Not yet implemented");
+        rover.land(planet, 3, 4, Rover.Direction.W);
+        rover.turnRight();
+
+        assertEquals(3, rover.getPositionX());
+        assertEquals(5, rover.getPositionY());
     }
 
 }

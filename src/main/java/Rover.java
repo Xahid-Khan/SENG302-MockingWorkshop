@@ -14,7 +14,13 @@ public class Rover {
     }
 
     public void land(Planet planet, int positionX, int positionY, Direction direction) throws IllegalArgumentException {
-        //TODO: implement this method
+
+        this.planet = planet;
+        if (positionX < planet.getLengthX()) {
+            this.positionX = positionX;
+        }
+        this.positionY = positionY;
+        this.direction = direction;
     }
 
     public boolean scanForRock() {
