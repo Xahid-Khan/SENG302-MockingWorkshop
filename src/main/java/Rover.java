@@ -42,11 +42,29 @@ public class Rover {
     }
 
     public void turnLeft() {
-        //TODO: implement this method
+        switch(direction){
+            case N:
+                direction = Direction.W;
+            case W:
+                direction = Direction.S;
+            case S:
+                direction = Direction.E;
+            case E:
+                direction = Direction.N;
+        }
     }
 
     public void turnRight() {
-        //TODO: implement this method
+        switch(direction){
+            case W:
+                direction = Direction.N;
+            case N:
+                direction = Direction.E;
+            case E:
+                direction = Direction.S;
+            case S:
+                direction = Direction.W;
+        }
     }
 
     public int getPositionX() {
