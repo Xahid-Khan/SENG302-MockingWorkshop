@@ -34,7 +34,6 @@ public class Rover {
     }
 
     public void moveForward() {
-        //TODO: implement this method
         if (this.direction == Direction.N) {
             this.positionY += 1;
         } else if (this.direction == Direction.E){
@@ -62,12 +61,16 @@ public class Rover {
         switch(direction){
             case N:
                 direction = Direction.W;
+                break;
             case W:
                 direction = Direction.S;
+                break;
             case S:
                 direction = Direction.E;
+                break;
             case E:
                 direction = Direction.N;
+                break;
         }
     }
 
@@ -75,12 +78,16 @@ public class Rover {
         switch(direction){
             case W:
                 direction = Direction.N;
+                break;
             case N:
                 direction = Direction.E;
+                break;
             case E:
                 direction = Direction.S;
+                break;
             case S:
                 direction = Direction.W;
+                break;
         }
     }
 

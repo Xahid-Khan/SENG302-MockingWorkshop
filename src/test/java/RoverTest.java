@@ -147,8 +147,9 @@ public class RoverTest {
         rover.land(planet, 3, 4, Rover.Direction.N);
         rover.turnLeft();
 
-        assertEquals(2, rover.getPositionX());
+        assertEquals(3, rover.getPositionX());
         assertEquals(4, rover.getPositionY());
+        assertEquals(Rover.Direction.W, rover.getDirection());
     }
 
     @Test
@@ -156,8 +157,9 @@ public class RoverTest {
         rover.land(planet, 3, 4, Rover.Direction.S);
         rover.turnLeft();
 
-        assertEquals(4, rover.getPositionX());
+        assertEquals(3, rover.getPositionX());
         assertEquals(4, rover.getPositionY());
+        assertEquals(Rover.Direction.E, rover.getDirection());
     }
 
     @Test
@@ -166,7 +168,8 @@ public class RoverTest {
         rover.turnLeft();
 
         assertEquals(3, rover.getPositionX());
-        assertEquals(5, rover.getPositionY());
+        assertEquals(4, rover.getPositionY());
+        assertEquals(Rover.Direction.N, rover.getDirection());
     }
 
     @Test
@@ -175,7 +178,8 @@ public class RoverTest {
         rover.turnLeft();
 
         assertEquals(3, rover.getPositionX());
-        assertEquals(3, rover.getPositionY());
+        assertEquals(4, rover.getPositionY());
+        assertEquals(Rover.Direction.S, rover.getDirection());
     }
 
     @Test
@@ -183,8 +187,9 @@ public class RoverTest {
         rover.land(planet, 3, 4, Rover.Direction.N);
         rover.turnRight();
 
-        assertEquals(4, rover.getPositionX());
+        assertEquals(3, rover.getPositionX());
         assertEquals(4, rover.getPositionY());
+        assertEquals(Rover.Direction.E, rover.getDirection());
     }
 
     @Test
@@ -192,8 +197,9 @@ public class RoverTest {
         rover.land(planet, 3, 4, Rover.Direction.S);
         rover.turnRight();
 
-        assertEquals(2, rover.getPositionX());
+        assertEquals(3, rover.getPositionX());
         assertEquals(4, rover.getPositionY());
+        assertEquals(Rover.Direction.W, rover.getDirection());
     }
 
     @Test
@@ -202,7 +208,8 @@ public class RoverTest {
         rover.turnRight();
 
         assertEquals(3, rover.getPositionX());
-        assertEquals(3, rover.getPositionY());
+        assertEquals(4, rover.getPositionY());
+        assertEquals(Rover.Direction.S, rover.getDirection());
     }
 
     @Test
@@ -211,7 +218,8 @@ public class RoverTest {
         rover.turnRight();
 
         assertEquals(3, rover.getPositionX());
-        assertEquals(5, rover.getPositionY());
+        assertEquals(4, rover.getPositionY());
+        assertEquals(Rover.Direction.N, rover.getDirection());
     }
 
 }
