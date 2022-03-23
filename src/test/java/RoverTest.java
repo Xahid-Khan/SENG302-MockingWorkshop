@@ -227,6 +227,8 @@ public class RoverTest {
         rover.land(planet, 5, 8, Rover.Direction.E);
         rover.moveForward();
         assertEquals(0, rover.getPositionX());
+        assertEquals(8, rover.getPositionY());
+
     }
 
     @Test
@@ -234,6 +236,8 @@ public class RoverTest {
         rover.land(planet, 5, 8, Rover.Direction.N);
         rover.moveForward();
         assertEquals(0, rover.getPositionY());
+        assertEquals(5, rover.getPositionX());
+
     }
 
     @Test
@@ -241,6 +245,8 @@ public class RoverTest {
         rover.land(planet, 0, 8, Rover.Direction.W);
         rover.moveForward();
         assertEquals(5, rover.getPositionX());
+        assertEquals(8, rover.getPositionY());
+
     }
 
     @Test
@@ -248,6 +254,44 @@ public class RoverTest {
         rover.land(planet, 5, 0, Rover.Direction.S);
         rover.moveForward();
         assertEquals(8, rover.getPositionY());
+        assertEquals(5, rover.getPositionX());
+
+    }
+
+    @Test
+    public void testGoBackwardBeyondBoundryX() {
+        rover.land(planet, 5, 8, Rover.Direction.W);
+        rover.moveBackward();
+        assertEquals(0, rover.getPositionX());
+        assertEquals(8, rover.getPositionY());
+
+    }
+
+    @Test
+    public void testGoBackwardBeyondBoundryY() {
+        rover.land(planet, 5, 8, Rover.Direction.S);
+        rover.moveBackward();
+        assertEquals(0, rover.getPositionY());
+        assertEquals(5, rover.getPositionX());
+
+    }
+
+    @Test
+    public void testGoBackwardBelowBoundryX() {
+        rover.land(planet, 0, 8, Rover.Direction.E);
+        rover.moveBackward();
+        assertEquals(5, rover.getPositionX());
+        assertEquals(8, rover.getPositionY());
+
+    }
+
+    @Test
+    public void testGoBackwardBelowBoundryY() {
+        rover.land(planet, 5, 0, Rover.Direction.N);
+        rover.moveBackward();
+        assertEquals(8, rover.getPositionY());
+        assertEquals(5, rover.getPositionX());
+
     }
 
 }
