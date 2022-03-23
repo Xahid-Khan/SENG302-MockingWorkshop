@@ -222,4 +222,32 @@ public class RoverTest {
         assertEquals(Rover.Direction.N, rover.getDirection());
     }
 
+    @Test
+    public void testGoForwardBeyondBoundryX() {
+        rover.land(planet, 5, 8, Rover.Direction.E);
+        rover.moveForward();
+        assertEquals(0, rover.getPositionX());
+    }
+
+    @Test
+    public void testGoForwardBeyondBoundryY() {
+        rover.land(planet, 5, 8, Rover.Direction.N);
+        rover.moveForward();
+        assertEquals(0, rover.getPositionY());
+    }
+
+    @Test
+    public void testGoForwardBelowBoundryX() {
+        rover.land(planet, 0, 8, Rover.Direction.W);
+        rover.moveForward();
+        assertEquals(5, rover.getPositionX());
+    }
+
+    @Test
+    public void testGoForwardBelowBoundryY() {
+        rover.land(planet, 5, 0, Rover.Direction.S);
+        rover.moveForward();
+        assertEquals(8, rover.getPositionY());
+    }
+
 }

@@ -35,25 +35,57 @@ public class Rover {
 
     public void moveForward() {
         if (this.direction == Direction.N) {
-            this.positionY += 1;
+            if(positionY == planet.getLengthY()){
+                positionY = 0;
+            } else {
+                positionY ++;
+            }
         } else if (this.direction == Direction.E){
-            this.positionX += 1;
+            if(positionX == planet.getLengthX()){
+                positionX = 0;
+            } else {
+                positionX ++;
+            }
         } else if (this.direction == Direction.S) {
-            this.positionY -= 1;
+            if(positionY == 0){
+                positionY = planet.getLengthY();
+            } else {
+                positionY --;
+            }
         } else if(this.direction == Direction.W ) {
-            this.positionX -= 1;
+            if(positionX == 0){
+                positionX = planet.getLengthX();
+            } else {
+                positionX --;
+            }
         }
     }
 
     public void moveBackward() {
-        if (this.direction == Direction.N) {
-            this.positionY -= 1;
-        } else if (this.direction == Direction.E){
-            this.positionX -= 1;
-        } else if (this.direction == Direction.S) {
-            this.positionY += 1;
-        } else if(this.direction == Direction.W ) {
-            this.positionX += 1;
+        if (this.direction == Direction.S) {
+            if(positionY == planet.getLengthY()){
+                positionY = 0;
+            } else {
+                positionY ++;
+            }
+        } else if (this.direction == Direction.W){
+            if(positionX == planet.getLengthX()){
+                positionX = 0;
+            } else {
+                positionX ++;
+            }
+        } else if (this.direction == Direction.N) {
+            if(positionY == 0){
+                positionY = planet.getLengthY();
+            } else {
+                positionY --;
+            }
+        } else if(this.direction == Direction.E ) {
+            if(positionX == 0){
+                positionX = planet.getLengthX();
+            } else {
+                positionX --;
+            }
         }
     }
 
