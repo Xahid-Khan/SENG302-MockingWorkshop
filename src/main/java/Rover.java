@@ -15,16 +15,21 @@ public class Rover {
 
     public void land(Planet planet, int positionX, int positionY, Direction direction) throws IllegalArgumentException {
 
-        this.planet = planet;
-        if (positionX < planet.getLengthX()) {
-            this.positionX = positionX;
+        if (positionX > planet.getLengthX() || positionY > planet.getLengthY() || positionX < 0 || positionY < 0) {
+            throw new IllegalArgumentException("land error");
         }
+        this.positionX = positionX;
         this.positionY = positionY;
         this.direction = direction;
+        this.planet = planet;
     }
 
     public boolean scanForRock() {
-        //TODO: implement this method
+        for (Rock rock : planet.getRocks()){
+            if(positionX == rock.getPositionX() && positionY == rock.getPositionY()){
+                return true;
+            }
+        }
         return false;
     }
 
